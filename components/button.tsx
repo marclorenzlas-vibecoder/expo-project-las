@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-native';
 
-export const CustomBasicButton: React.FC = () => {
+export const BasicButton: React.FC = () => {
   const onPressButton = () => {
     alert('Hello');
   };

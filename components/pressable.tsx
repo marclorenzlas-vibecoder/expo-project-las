@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Pressable, StyleSheet, Text } from 'react-native';
+import { Pressable as RNPressable, StyleSheet, Text } from 'react-native';
 
-export const CustomPressable: React.FC = () => {
+export const Pressable: React.FC = () => {
   const [timesPressed, setTimesPressed] = useState(0);
 
   const onPressFunction = () => {
@@ -14,7 +14,7 @@ export const CustomPressable: React.FC = () => {
   };
 
   return (
-    <Pressable 
+    <RNPressable 
       onPress={onPressFunction}
       onLongPress={longPressFunction}
       style={({ pressed }) => [
@@ -26,7 +26,7 @@ export const CustomPressable: React.FC = () => {
       ]}
     >
       <Text style={styles.logBox}>PRESSABLE ({timesPressed})</Text>
-    </Pressable>
+    </RNPressable>
   );
 };
 

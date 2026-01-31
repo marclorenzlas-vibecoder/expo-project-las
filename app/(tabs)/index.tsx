@@ -2,10 +2,10 @@ import { Image } from 'expo-image';
 import React from 'react';
 import { SafeAreaView, StyleSheet, Text } from 'react-native';
 
-import { CustomBasicButton } from '@/components/button';
+import { BasicButton } from '@/components/button';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { CustomPressable } from '@/components/pressable';
-import { CustomTextInput } from '@/components/textinput';
+import { Pressable } from '@/components/pressable';
+import { TextInput } from '@/components/textinput';
 
 export default function HomeScreen() {
   return (
@@ -21,11 +21,11 @@ export default function HomeScreen() {
         <Text style={styles.text}>TASK 1</Text>
       </SafeAreaView>
       
-      <CustomTextInput />
+      <TextInput />
       
-      <CustomBasicButton />
+      <BasicButton />
       
-      <CustomPressable />
+      <Pressable />
     </ParallaxScrollView>
   );
 }

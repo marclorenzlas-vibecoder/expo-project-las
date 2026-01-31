@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput } from 'react-native';
+import { TextInput as RNTextInput, StyleSheet } from 'react-native';
 
-export const CustomTextInput: React.FC = () => {
+export const TextInput: React.FC = () => {
   const [textInput, setTextInput] = useState('');
   const [name, setName] = useState('');
 
@@ -20,7 +20,7 @@ export const CustomTextInput: React.FC = () => {
   };
 
   return (
-    <TextInput
+    <RNTextInput
       style={styles.input}
       placeholder="Enter your name"
       placeholderTextColor="#888"
