@@ -1,5 +1,5 @@
 import { Image } from 'expo-image';
-import { Platform, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Platform, SafeAreaView, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
 import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
@@ -22,6 +22,10 @@ export default function HomeScreen() {
           style={styles.reactLogo}
         />
       }>
+
+        <SafeAreaView style={styles.container}>
+      <Text style={styles.text}>TASK 2</Text>
+    </SafeAreaView>
 
       <TouchableOpacity 
         style={styles.customButton}
@@ -69,5 +73,14 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 17,
     fontWeight: '600',
+  },
+  text: {
+    fontSize: 25,
+    fontWeight: '500',
+    color: '#ffffff',
+  },
+  wrapperCustom: {
+    borderRadius: 8,
+    padding: 6,
   },
 });
