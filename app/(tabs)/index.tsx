@@ -1,42 +1,13 @@
 import { Image } from 'expo-image';
-import React, { useState } from 'react';
-import { Button, Pressable, SafeAreaView, StyleSheet, Text, TextInput } from 'react-native';
+import React from 'react';
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
 
+import { CustomBasicButton } from '@/components/button';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
+import { CustomPressable } from '@/components/pressable';
+import { CustomTextInput } from '@/components/textinput';
 
 export default function HomeScreen() {
-  const [timesPressed, setTimesPressed] = useState(0);
-  const [textInput, setTextInput] = useState('');
-  const [name, setName] = useState('');
-
-  const onPressButton = () => {
-    alert('Hello');
-  };
-
-  const onPressFunction = () => {
-    setTimesPressed(current => current + 1);
-  };
-  
-  const longPressFunction = () => {
-    setTimesPressed(0);
-    alert('LongPress!');
-  };
-
-  const handleSubmit = () => {
-    if (textInput.trim()) {
-      setName(textInput);
-      alert(`Welcome, ${textInput}!`);
-    } else {
-      alert('Please enter your name');
-    }
-  };
-
-  const handleClear = () => {
-    setTextInput('');
-    setName('');
-  };
-  
-
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -50,37 +21,13 @@ export default function HomeScreen() {
         <Text style={styles.text}>TASK 1</Text>
       </SafeAreaView>
       
-      <TextInput
-        style={styles.input}
-        placeholder="Enter your name"
-        placeholderTextColor="#888"
-        value={textInput}
-        onChangeText={setTextInput}
-      />
+      <CustomTextInput />
       
-      <Button
-        onPress={onPressButton}
-        title="Button"
-        color="#17d9f3"
-      />
+      <CustomBasicButton />
       
-      <Pressable 
-        onPress={onPressFunction}
-        onLongPress={longPressFunction}
-        style={({ pressed }) => [
-          styles.logBox,
-          {
-            backgroundColor: pressed ? 'rgb(29, 230, 230)' : 'white',
-            opacity: pressed ? 0.6 : 1,
-          },  
-        ]}
-      >
-        <Text style={styles.logBox}>PRESSABLE ({timesPressed})</Text>
-      </Pressable>
+      <CustomPressable />
     </ParallaxScrollView>
-    
   );
-  
 }
 
 const styles = StyleSheet.create({
@@ -110,23 +57,5 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#ffffff',
     textAlign: 'center',
-  },
-  input: {
-    height: 50,
-    borderColor: '#ddd',
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 15,
-    fontSize: 16,
-    marginBottom: 10,
-    color: '#ffffff',
-  },
-  logBox: {
-    padding: 1,
-    margin: 5,
-    fontSize: 16,
-    textAlign: 'center',
-    borderWidth: StyleSheet.hairlineWidth,
-    borderColor: '#f0f0f0',
   },
 });
