@@ -1,15 +1,13 @@
 import { Image } from 'expo-image';
 import React, { useState } from 'react';
-import { Button, Platform, Pressable, SafeAreaView, StyleSheet, Text } from 'react-native';
+import { Button, Pressable, SafeAreaView, StyleSheet, Text, TextInput } from 'react-native';
 
-import { HelloWave } from '@/components/hello-wave';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
 
 export default function HomeScreen() {
   const [timesPressed, setTimesPressed] = useState(0);
+  const [textInput, setTextInput] = useState('');
+  const [name, setName] = useState('');
 
   const onPressButton = () => {
     alert('Hello');
@@ -18,9 +16,24 @@ export default function HomeScreen() {
   const onPressFunction = () => {
     setTimesPressed(current => current + 1);
   };
+  
   const longPressFunction = () => {
     setTimesPressed(0);
-    alert('LongPress');
+    alert('LongPress!');
+  };
+
+  const handleSubmit = () => {
+    if (textInput.trim()) {
+      setName(textInput);
+      alert(`Welcome, ${textInput}!`);
+    } else {
+      alert('Please enter your name');
+    }
+  };
+
+  const handleClear = () => {
+    setTextInput('');
+    setName('');
   };
   
 
@@ -33,16 +46,23 @@ export default function HomeScreen() {
           style={styles.reactLogo}
         />
       }>
-       <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>TASK 1</Text>
-    </SafeAreaView>
+      <SafeAreaView style={styles.container}>
+        <Text style={styles.text}>TASK 1</Text>
+      </SafeAreaView>
       
+      <TextInput
+        style={styles.input}
+        placeholder="Enter your name"
+        placeholderTextColor="#888"
+        value={textInput}
+        onChangeText={setTextInput}
+      />
       
       <Button
-          onPress={onPressButton}
-          title="Button"
-          color="#17d9f3"
-        />
+        onPress={onPressButton}
+        title="Button"
+        color="#17d9f3"
+      />
       
       <Pressable 
         onPress={onPressFunction}
@@ -89,9 +109,15 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#ffffff',
   },
-  wrapperCustom: {
+  input: {
+    height: 50,
+    borderColor: '#ddd',
+    borderWidth: 1,
     borderRadius: 8,
-    padding: 6,
+    paddingHorizontal: 15,
+    fontSize: 16,
+    marginBottom: 10,
+    color: '#ffffff',
   },
   logBox: {
     padding: 1,
@@ -101,5 +127,4 @@ const styles = StyleSheet.create({
     borderWidth: StyleSheet.hairlineWidth,
     borderColor: '#f0f0f0',
   },
-  
 });
