@@ -5,7 +5,6 @@ import { Alert, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } 
 import { ExternalLink } from '@/components/external-link';
 import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
 import { Collapsible } from '@/components/ui/collapsible';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Fonts } from '@/constants/theme';
@@ -193,17 +192,6 @@ export default function TabTwoScreen() {
           style={styles.headerImage}
         />
       }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText
-          type="title"
-          style={{
-            fontFamily: Fonts.rounded,
-          }}>
-          🔥 Firebase Demo
-        </ThemedText>
-      </ThemedView>
-      <ThemedText>Test Firebase services integrated in your Expo app.</ThemedText>
-      
       <Collapsible title="🔐 Authentication">
         <ThemedText style={styles.sectionText}>
           Firebase Authentication enables secure user sign-in with email/password.
